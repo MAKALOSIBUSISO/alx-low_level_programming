@@ -1,7 +1,7 @@
 #include <studio.h>
 /**
  * main - print a line of code using puts functions
- * Return: 0 (Success)
+ * Return: 0
  */
 int main(void)
 {
