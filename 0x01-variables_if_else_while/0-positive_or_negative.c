@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdio.h>
+/* more headers goes there */
 
+/* betty style doc function main goes there */
 /**
- * main - prints if the number is positive, negative or 0
+ * main - Entry point
  *
  * Return: Always 0 (Success)
  */
+
 int main(void)
 {
 	int n;
