@@ -26,14 +26,12 @@ typedef struct dlistint_s
  */
 size_t print_dlistint(const dlistint_t *h)
 {
-    size_t count = 0;
+	int track_node;
 
-    while (h != NULL)
-    {
-        printf("%d\n", h->n);
-        h = h->next;
-        count++;
-    }
-
-    return count;
+	for (track_node = 0; h != NULL; track_node++)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+	}
+	return (track_node);
 }
