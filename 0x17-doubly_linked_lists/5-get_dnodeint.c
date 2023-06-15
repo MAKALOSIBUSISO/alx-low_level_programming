@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdlib>
 
 /**
  * free_dlistint - frees a dlistint_t list
