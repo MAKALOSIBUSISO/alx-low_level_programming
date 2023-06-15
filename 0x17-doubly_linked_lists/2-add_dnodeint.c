@@ -1,56 +1,38 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "lists.h"
 
 /**
- * struct dlistint_s - Doubly linked list node
+ * add_dnodeinteger - adds a new node at the beginning
+ * of a dlistint_t list
  *
- * @n: Integer stored in the node
- * @prev: Pointer to the previous element of the list
- * @next: Pointer to the next element of the list
- *
- * Description: Doubly linked list node structure
- * for Holberton project
- */
-typedef struct dlistint_s
-{
-    int n;
-    struct dlistint_s *prev;
-    struct dlistint_s *next;
-} dlistint_t;
-
-/**
- * add_dnodeint - Adds a new node at the beginning of a dlistint_t list
- * @head: Pointer to the head of the list
- * @n: Integer to be stored in the new node
- *
- * Return: Address of the new element, or NULL if it failed
+ * @head: head of the list
+ * @n: value of the element
+ * Return: the address of the new element
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
-    dlistint_t *new_node;
+	dlistint_t *new;
+	dlistint_t *h;
 
-    // Allocate memory for the new node
-    new_node = malloc(sizeof(dlistint_t));
-    if (new_node == NULL)
-        return NULL;
+	new = malloc(sizeof(dlistint_t));
+	if (new == NULL)
+		return (NULL);
 
-    // Set the value of the new node
-    new_node->n = n;
-    new_node->prev = NULL;
+	new->n = n;
+	new->prev = NULL;
+	h = *head;
 
-    // If the list is empty, set the new node as the head
-    if (*head == NULL)
-    {
-        new_node->next = NULL;
-        *head = new_node;
-    }
-    else
-    {
-        // Set the new node as the head and link it to the previous head
-        new_node->next = *head;
-        (*head)->prev = new_node;
-        *head = new_node;
-    }
+	if (h != NULL)
+	{
+		while (h->prev != NULL)
+			h = h->prev;
+	}
 
-    return new_node;
+	new->next = h;
+
+	if (h != NULL)
+		h->prev = new;
+
+	*head = new;
+
+	return (new);
 }
